@@ -1,0 +1,340 @@
+fileFormatVersion: 2
+guid: ddf2dbf6dd6fb5f418e3ed8a4416f615
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2074545798051287725
+    second: Larry_1_0
+  - first:
+      213: 5159866786786740262
+    second: Larry_1_1
+  - first:
+      213: 4992845736246072116
+    second: Larry_1_2
+  - first:
+      213: -7114230440048963160
+    second: Larry_1_3
+  - first:
+      213: -1815601621822265917
+    second: Larry_1_4
+  - first:
+      213: -724693881973056006
+    second: Larry_1_5
+  - first:
+      213: -6259217236266226742
+    second: Larry_1_6
+  - first:
+      213: -5461598345843783939
+    second: Larry_1_7
+  - first:
+      213: -8963032791504592000
+    second: Larry_1_8
+  - first:
+      213: 7835020640407970844
+    second: Larry_1_9
+  - first:
+      213: 1588375935648473240
+    second: Larry_1_10
+  - first:
+      213: 7492804843929899135
+    second: Larry_1_11
+  - first:
+      213: -5970746614507974271
+    second: Larry_1_12
+  - first:
+      213: -2061577991981220737
+    second: Larry_1_13
+  - first:
+      213: 5474226349988949949
+    second: Larry_1_14
+  - first:
+      213: -4939446605965901283
+    second: Larry_1_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Larry_1_9
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 4
+        width: 156
+        height: 438
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c14ee5fb2c59bbc60800000000000000
+      internalID: 7835020640407970844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Larry_1_10
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 4
+        width: 156
+        height: 438
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8902b167f7b0b0610800000000000000
+      internalID: 1588375935648473240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Larry_1_11
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 4
+        width: 156
+        height: 438
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7094c59e4acbf760800000000000000
+      internalID: 7492804843929899135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Larry_1_12
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 4
+        width: 156
+        height: 438
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 181d266a695a32da0800000000000000
+      internalID: -5970746614507974271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Larry_1_13
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 4
+        width: 156
+        height: 438
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7c323f2dbdc363e0800000000000000
+      internalID: -2061577991981220737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Larry_1_14
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 4
+        width: 156
+        height: 438
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbfac239cdb58fb40800000000000000
+      internalID: 5474226349988949949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Larry_1_15
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 0
+        width: 156
+        height: 438
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d12c4607b7f837bb0800000000000000
+      internalID: -4939446605965901283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 3ef868d2b13091e4f8e14a725649a16d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Larry_1_10: 1588375935648473240
+      Larry_1_11: 7492804843929899135
+      Larry_1_12: -5970746614507974271
+      Larry_1_13: -2061577991981220737
+      Larry_1_14: 5474226349988949949
+      Larry_1_15: -4939446605965901283
+      Larry_1_8: -8963032791504592000
+      Larry_1_9: 7835020640407970844
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
