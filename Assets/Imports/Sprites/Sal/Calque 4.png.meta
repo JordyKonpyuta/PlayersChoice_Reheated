@@ -96,7 +96,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -140,7 +140,7 @@ TextureImporter:
         x: 3
         y: 0
         width: 172
-        height: 336
+        height: 330
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,7 +162,7 @@ TextureImporter:
         x: 178
         y: 0
         width: 172
-        height: 336
+        height: 330
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,7 +184,7 @@ TextureImporter:
         x: 354
         y: 0
         width: 172
-        height: 336
+        height: 330
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,10 +203,10 @@ TextureImporter:
       name: Calque 4_6
       rect:
         serializedVersion: 2
-        x: 529
+        x: 528
         y: 0
         width: 172
-        height: 336
+        height: 330
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,7 +228,7 @@ TextureImporter:
         x: 702
         y: 0
         width: 172
-        height: 336
+        height: 330
       alignment: 9
       pivot: {x: 0.523951, y: 0.49686962}
       border: {x: 0, y: 0, z: 0, w: 0}

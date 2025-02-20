@@ -81,7 +81,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -119,37 +119,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Talk_2_0
-      rect:
-        serializedVersion: 2
-        x: 14
-        y: 257
-        width: 20
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3c157f6225d9d63c0800000000000000
-      internalID: -4364659487685520957
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Talk_2_1
       rect:
         serializedVersion: 2
-        x: 17
+        x: 0
         y: 0
-        width: 206
+        width: 223
         height: 394
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -162,33 +140,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Talk_2_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 166
-        width: 15
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 096f51b5e8e2bdcf0800000000000000
-      internalID: -226536167303678320
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: bab1ab134ea9bec4e88a425f250a6922
     internalID: 0
     vertices: []
     indices: 
@@ -197,7 +153,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Talk_2_0: -4364659487685520957
+      Talk_2_1: -5653808039955952682
+      Talk_2_2: -226536167303678320
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

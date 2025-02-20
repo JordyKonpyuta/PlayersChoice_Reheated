@@ -96,7 +96,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -137,10 +137,10 @@ TextureImporter:
       name: Larry_2_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 5
         y: 0
         width: 156
-        height: 438
+        height: 428
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,9 +160,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 168
-        y: 6
+        y: 16
         width: 156
-        height: 438
+        height: 428
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,9 +182,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 327
-        y: 6
+        y: 16
         width: 156
-        height: 438
+        height: 428
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,10 +203,10 @@ TextureImporter:
       name: Larry_2_3
       rect:
         serializedVersion: 2
-        x: 490
-        y: 5
+        x: 492
+        y: 16
         width: 156
-        height: 438
+        height: 428
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -225,10 +225,10 @@ TextureImporter:
       name: Larry_2_4
       rect:
         serializedVersion: 2
-        x: 649
-        y: 5
+        x: 653
+        y: 16
         width: 156
-        height: 438
+        height: 428
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -247,10 +247,10 @@ TextureImporter:
       name: Larry_2_5
       rect:
         serializedVersion: 2
-        x: 806
-        y: 6
+        x: 807
+        y: 16
         width: 156
-        height: 438
+        height: 428
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -270,9 +270,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 966
-        y: 5
+        y: 16
         width: 156
-        height: 438
+        height: 428
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -292,9 +292,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1134
-        y: 0
+        y: 8
         width: 156
-        height: 438
+        height: 428
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

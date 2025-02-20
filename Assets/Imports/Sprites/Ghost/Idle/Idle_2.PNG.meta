@@ -81,7 +81,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -119,37 +119,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle_2_0
-      rect:
-        serializedVersion: 2
-        x: 14
-        y: 257
-        width: 20
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4eeecacb2631d1aa0800000000000000
-      internalID: -6188768998144020764
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Idle_2_1
       rect:
         serializedVersion: 2
-        x: 17
+        x: 0
         y: 0
-        width: 206
+        width: 223
         height: 394
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -162,33 +140,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Idle_2_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 166
-        width: 15
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d133a6df6fcd06bd0800000000000000
-      internalID: -2638866428267449571
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 191760cb97557a54898d1097bc69c8e2
     internalID: 0
     vertices: []
     indices: 
@@ -197,7 +153,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Idle_2_0: -6188768998144020764
+      Idle_2_1: 8893443453730532091
+      Idle_2_2: -2638866428267449571
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

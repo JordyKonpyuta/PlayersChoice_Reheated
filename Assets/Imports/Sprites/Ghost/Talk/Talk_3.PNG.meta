@@ -81,7 +81,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -122,12 +122,12 @@ TextureImporter:
       name: Talk_3_0
       rect:
         serializedVersion: 2
-        x: 18
+        x: 0
         y: 0
-        width: 214
+        width: 232
         height: 394
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -140,55 +140,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Talk_3_1
-      rect:
-        serializedVersion: 2
-        x: 20
-        y: 265
-        width: 15
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1defa491534f70c20800000000000000
-      internalID: 3172772971400593105
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Talk_3_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 182
-        width: 16
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a4d998ec23a625f90800000000000000
-      internalID: -6966388907142701750
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 73f7946e3dd105e4b894d5eed5d7af40
     internalID: 0
     vertices: []
     indices: 
@@ -197,7 +153,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Talk_3_0: 1411782123372807924
+      Talk_3_1: 3172772971400593105
+      Talk_3_2: -6966388907142701750
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
