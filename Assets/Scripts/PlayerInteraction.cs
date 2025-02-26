@@ -14,6 +14,8 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject interactionCanvas;
     public TextMeshProUGUI interactionText;
 
+    public GameObject dialogueCanvas;
+
     public Animator animator;
     public RuntimeAnimatorController normal;
     public RuntimeAnimatorController gbEquipped;
@@ -41,15 +43,27 @@ public class PlayerInteraction : MonoBehaviour
             {
                 if (interactive.CompareTag("Ghost"))
                 {
-                    hasGearBoyEquipped = false;
-                    ChangeControllerAnimator();
-                    interactionCanvas.SetActive(false);
-                    spriteGb.SetActive(false);
-                    isInteracting = true;
+                    dialogueCanvas.GetComponent<DialogueSystem>().dialogueLines = interactive.GetComponent<Ghost>().dialogueLines;
+                    dialogueCanvas.GetComponent<DialogueSystem>().names = interactive.GetComponent<Ghost>().names;
+                    EnterInDialogue();
                     interactive.GetComponent<Ghost>().OnInteract();
+                }
+
+                else if (interactive.CompareTag("NPC"))
+                {
+                    dialogueCanvas.GetComponent<DialogueSystem>().dialogueLines = interactive.GetComponent<NPC>().dialogueLines;
+                    dialogueCanvas.GetComponent<DialogueSystem>().names = interactive.GetComponent<NPC>().names;
+                    EnterInDialogue();
+                }
+
+                else if (interactive.CompareTag("Door"))
+                {
+                    interactive.GetComponent<Door>().OnInteract();
                 }
             }
         }
+
+        animator.SetBool("isTalking", this.isTalking);
     }
 
     void ChangeControllerAnimator()
@@ -59,5 +73,17 @@ public class PlayerInteraction : MonoBehaviour
             animator.runtimeAnimatorController = gbEquipped;
         }
         else animator.runtimeAnimatorController = normal;
+    }
+
+    public void EnterInDialogue()
+    {
+        hasGearBoyEquipped = false;
+        ChangeControllerAnimator();
+        interactionCanvas.SetActive(false);
+        spriteGb.SetActive(false);
+        isInteracting = true;
+        interactionCanvas.SetActive(false);
+        dialogueCanvas.SetActive(true);
+        dialogueCanvas.GetComponent<DialogueSystem>().interlocutor = interactive;
     }
 }

@@ -24,8 +24,11 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayer(float movement)
     {
-        Vector3 targetVelocity = new Vector2(movement, rigidBody.linearVelocity.y);
-        rigidBody.linearVelocity = Vector3.SmoothDamp(rigidBody.linearVelocity, targetVelocity, ref _velocity, .05f);
+        if (!gameObject.GetComponent<PlayerInteraction>().isInteracting)
+        {
+            Vector3 targetVelocity = new Vector2(movement, rigidBody.linearVelocity.y);
+            rigidBody.linearVelocity = Vector3.SmoothDamp(rigidBody.linearVelocity, targetVelocity, ref _velocity, .05f);
+        }
     }
 
     void Flip(float velocity)

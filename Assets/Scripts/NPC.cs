@@ -1,28 +1,28 @@
-using System;
 using UnityEngine;
 
-public class Ghost : MonoBehaviour
+public class NPC : MonoBehaviour
 {
+
     public Animator animator;
 
-    public string[] dialogueLines = null;
-    public string[] names = null;
+    public string[] dialogueLines;
+    public string[] names;
 
+    public string characterName;
+
+    
     void Start()
     {
         animator = gameObject.GetComponent<Animator>();
-        animator.enabled = false;
-        gameObject.GetComponent<SpriteRenderer>().enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            if (other.gameObject.GetComponent<PlayerInteraction>().hasGearBoyEquipped)
+            if (!other.gameObject.GetComponent<PlayerInteraction>().hasGearBoyEquipped)
             {
-                other.gameObject.GetComponent<PlayerInteraction>().spriteGb.SetActive(true);
-                other.gameObject.GetComponent<PlayerInteraction>().interactionText.SetText("???");
+                other.gameObject.GetComponent<PlayerInteraction>().interactionText.SetText(characterName);
                 other.gameObject.GetComponent<PlayerInteraction>().interactionCanvas.SetActive(true);
                 other.gameObject.GetComponent<PlayerInteraction>().interactive = gameObject;
             }
@@ -33,18 +33,12 @@ public class Ghost : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (other.gameObject.GetComponent<PlayerInteraction>().hasGearBoyEquipped)
+            if (!other.gameObject.GetComponent<PlayerInteraction>().hasGearBoyEquipped)
             {
-                other.gameObject.GetComponent<PlayerInteraction>().spriteGb.SetActive(false);
                 other.gameObject.GetComponent<PlayerInteraction>().interactionCanvas.SetActive(false);
                 other.gameObject.GetComponent<PlayerInteraction>().interactive = null;
             }
         }
     }
 
-    public void OnInteract()
-    {
-        animator.enabled = true;
-        gameObject.GetComponent<SpriteRenderer>().enabled = true;
-    }
 }

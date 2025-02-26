@@ -170,3 +170,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8842b53c702df814c8d514cde6ea04e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 5073874221020609578}
+  dialogueLines: []
+  names: []

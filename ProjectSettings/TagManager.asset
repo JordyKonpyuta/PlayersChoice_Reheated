@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ghost
   - NPC
+  - Door
   layers:
   - Default
   - TransparentFX

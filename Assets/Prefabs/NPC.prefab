@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 3786490601570803779}
   - component: {fileID: 5721493376469291368}
   - component: {fileID: 5179047916221624379}
+  - component: {fileID: 6468847322341684310}
   m_Layer: 0
   m_Name: NPC
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,7 +128,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.56, y: 4.38}
+    oldSize: {x: 1.56, y: 4.28}
     newSize: {x: 1.56, y: 4.38}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -157,3 +158,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6468847322341684310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2289171251975546662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a7008838c6de3447a444ec9294fe148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 5179047916221624379}
+  dialogueLines: []
+  names: []
