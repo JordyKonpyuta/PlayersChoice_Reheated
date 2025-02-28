@@ -20,55 +20,68 @@ public class DialogueSystem : MonoBehaviour
 
     private string displayText = null;
 
-    private float timePerChar = 0.02f;
-    private float timer = 0;
+    //private float timePerChar = 0.02f;
+    //private float timer = 0;
 
     public GameObject player;
     public GameObject interlocutor;
 
+    private bool _canClick = true;
+
    public void Start()
     {
+    }
+
+   void OnEnable()
+    {
+        _canClick = false;
         nameIndex = 0;
         nameText.text = names[nameIndex];
         lineIndex = 0;
+        displayText = dialogueLines[lineIndex];
+        dialogueText.text = displayText;
         VerifyWhoIsTalking();
+        StartCoroutine(CanClickDelay());
+        Debug.Log(lineIndex);
     }
 
    public void Update()
     {
-        timer -= Time.deltaTime;
-        if (timer <= 0 )
-        {
-            timer += timePerChar;
-            TypewrittingEffect();
-        }
 
         if (Input.GetButton($"Interact"))
         {
-            if (displayText != dialogueLines[lineIndex])
+            if (_canClick)
             {
-                timer = 9999;
-                displayText = dialogueLines[lineIndex];
-                dialogueText.text = displayText;
-            }
-            else if (lineIndex < dialogueLines.Length - 1)
-            {
-                lineIndex++;
-                nameIndex++;
-                nameText.text = names[nameIndex];
-                letterIndex = 0;
-                timer = 0;
-                VerifyWhoIsTalking();
-            }
-            else
-            {
-                gameObject.SetActive(false);
-                player.gameObject.GetComponent<PlayerInteraction>().isInteracting = false;
-                if (interlocutor.CompareTag("Ghost"))
+                if (lineIndex < dialogueLines.Length - 1)
                 {
-                    interlocutor.GetComponent<Ghost>().animator.SetBool("isInDialogue", false);
-                    interlocutor.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                    lineIndex++;
+                    nameIndex++;
+                    displayText = dialogueLines[lineIndex];
+                    nameText.text = names[nameIndex];
+                    dialogueText.text = displayText;
+                    //letterIndex = 0;
+                    VerifyWhoIsTalking();
                 }
+                else
+                {
+                    VerifyWhoIsTalking();
+                    gameObject.SetActive(false);
+                    player.gameObject.GetComponent<PlayerInteraction>().isInteracting = false;
+                    //letterIndex = 0;
+                    displayText = null;
+                    if (interlocutor.CompareTag("Ghost"))
+                    {
+                        interlocutor.GetComponent<Ghost>().animator.SetBool("isInDialogue", false);
+                        interlocutor.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                    }
+                }
+
+                if (gameObject.activeInHierarchy)
+                {
+                    _canClick = false;
+                    StartCoroutine(CanClickDelay());
+                }
+                
             }
         }
     }
@@ -81,8 +94,6 @@ public class DialogueSystem : MonoBehaviour
             dialogueText.text = displayText;
             letterIndex++;
         }
-
-        timer = 0;
     }
 
     private void VerifyWhoIsTalking()
@@ -103,5 +114,11 @@ public class DialogueSystem : MonoBehaviour
                 interlocutor.gameObject.GetComponent<Ghost>().animator.SetBool("isTalking", true);
             }
         }
+    }
+
+    IEnumerator CanClickDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        _canClick = true;
     }
 }

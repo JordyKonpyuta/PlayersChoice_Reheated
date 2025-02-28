@@ -4,9 +4,6 @@ public class Door : MonoBehaviour
 {
     public string destinationName;
     public GameObject destination;
-    public GameObject canvasTransition;
-    public Animator animator;
-
     public GameObject player;
 
     private string[] defaultDialogue = {"Y a personne."};
@@ -14,7 +11,6 @@ public class Door : MonoBehaviour
 
     void Start()
     {
-        HideCanvas();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -45,40 +41,39 @@ public class Door : MonoBehaviour
 
     public void OnInteract()
     {
-        Debug.Log("coucou");
         if (destination != null) 
         { 
             if (destination.CompareTag("Door"))
             {
-                canvasTransition.SetActive(true);
-                animator.enabled = true;
+                foreach (Transform child in player.transform)
+                {
+                    if (child.CompareTag("Door"))
+                    {
+                        Debug.Log("coucou");
+                        child.GetComponent<DoorInteraction>().ShowCanvas();
+                        child.GetComponent<DoorInteraction>().playerDestination = destination;
+                    }
+                }
             }
 
             else
             {
-                player.gameObject.GetComponent<PlayerInteraction>().EnterInDialogue();
-                player.gameObject.GetComponent<PlayerInteraction>().dialogueCanvas.GetComponent<DialogueSystem>().dialogueLines = defaultDialogue;
-                player.gameObject.GetComponent<PlayerInteraction>().dialogueCanvas.GetComponent<DialogueSystem>().names = defaultName;
+                player.GetComponent<PlayerInteraction>().EnterInDialogue();
+                player.GetComponent<PlayerInteraction>().dialogueCanvas.GetComponent<DialogueSystem>().dialogueLines = defaultDialogue;
+                player.GetComponent<PlayerInteraction>().dialogueCanvas.GetComponent<DialogueSystem>().names = defaultName;
             }
         }
 
         else
         {
-            player.gameObject.GetComponent<PlayerInteraction>().EnterInDialogue();
-            player.gameObject.GetComponent<PlayerInteraction>().dialogueCanvas.GetComponent<DialogueSystem>().dialogueLines = defaultDialogue;
-            player.gameObject.GetComponent<PlayerInteraction>().dialogueCanvas.GetComponent<DialogueSystem>().names = defaultName;
+            player.GetComponent<PlayerInteraction>().EnterInDialogue();
+            player.GetComponent<PlayerInteraction>().dialogueCanvas.GetComponent<DialogueSystem>().dialogueLines = defaultDialogue;
+            player.GetComponent<PlayerInteraction>().dialogueCanvas.GetComponent<DialogueSystem>().names = defaultName;
         }
     }
 
     public void TeleportPlayer()
     {
         player.transform.position = destination.transform.position;
-    }
-
-    public void HideCanvas()
-    {
-        canvasTransition.SetActive(false);
-        animator.enabled = false;
-        player = null;
     }
 }
