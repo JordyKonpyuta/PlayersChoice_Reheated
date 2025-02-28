@@ -1,10 +1,15 @@
 using UnityEngine;
+using System.Collections;
 
 public class Door : MonoBehaviour
 {
     public string destinationName;
     public GameObject destination;
     public GameObject player;
+
+    public AudioSource audioSource;
+
+    public AudioClip[] noDestinationSound;
 
     private string[] defaultDialogue = {"Y a personne."};
     private string[] defaultName = {"Sally Face"};
@@ -49,7 +54,6 @@ public class Door : MonoBehaviour
                 {
                     if (child.CompareTag("Door"))
                     {
-                        Debug.Log("coucou");
                         child.GetComponent<DoorInteraction>().ShowCanvas();
                         child.GetComponent<DoorInteraction>().playerDestination = destination;
                     }
@@ -58,6 +62,8 @@ public class Door : MonoBehaviour
 
             else
             {
+                audioSource.clip = noDestinationSound[Random.Range(0, noDestinationSound.Length)];
+                audioSource.Play();
                 player.GetComponent<PlayerInteraction>().EnterInDialogue();
                 player.GetComponent<PlayerInteraction>().dialogueCanvas.GetComponent<DialogueSystem>().dialogueLines = defaultDialogue;
                 player.GetComponent<PlayerInteraction>().dialogueCanvas.GetComponent<DialogueSystem>().names = defaultName;
@@ -66,14 +72,11 @@ public class Door : MonoBehaviour
 
         else
         {
+            audioSource.clip = noDestinationSound[Random.Range(0, noDestinationSound.Length)];
+            audioSource.Play();
             player.GetComponent<PlayerInteraction>().EnterInDialogue();
             player.GetComponent<PlayerInteraction>().dialogueCanvas.GetComponent<DialogueSystem>().dialogueLines = defaultDialogue;
             player.GetComponent<PlayerInteraction>().dialogueCanvas.GetComponent<DialogueSystem>().names = defaultName;
         }
-    }
-
-    public void TeleportPlayer()
-    {
-        player.transform.position = destination.transform.position;
     }
 }

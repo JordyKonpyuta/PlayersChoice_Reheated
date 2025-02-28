@@ -6,6 +6,9 @@ public class DoorInteraction : MonoBehaviour
     public GameObject canvas;
     public Animator animator;
 
+    public AudioSource audioSource;
+    public AudioClip openDoor;
+
     public GameObject playerDestination;
 
     void Start()
@@ -30,6 +33,8 @@ public class DoorInteraction : MonoBehaviour
 
     void TeleportPlayer()
     {
+        audioSource.clip = openDoor;
+        audioSource.Play();
         transform.parent.gameObject.transform.position = playerDestination.transform.position;
     }
 }

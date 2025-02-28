@@ -42,7 +42,15 @@ public class DialogueSystem : MonoBehaviour
         dialogueText.text = displayText;
         VerifyWhoIsTalking();
         StartCoroutine(CanClickDelay());
-        Debug.Log(lineIndex);
+        player.GetComponent<PlayerInteraction>().gbCanvas.SetActive(true);
+        player.GetComponent<PlayerInteraction>().audioSource.clip = player.GetComponent<PlayerInteraction>().useGB;
+        player.GetComponent<PlayerInteraction>().audioSource.loop = false;
+        player.GetComponent<PlayerInteraction>().audioSource.Play();
+        if (interlocutor.CompareTag("Ghost"))
+        {
+            interlocutor.GetComponent<Ghost>().audioSource.clip = interlocutor.GetComponent<Ghost>().appearSound;
+            interlocutor.GetComponent<Ghost>().audioSource.Play();
+        }
     }
 
    public void Update()
@@ -71,8 +79,11 @@ public class DialogueSystem : MonoBehaviour
                     displayText = null;
                     if (interlocutor.CompareTag("Ghost"))
                     {
+                        interlocutor.GetComponent<Ghost>().audioSource.clip = interlocutor.GetComponent<Ghost>().disappearSound;
+                        interlocutor.GetComponent<Ghost>().audioSource.Play();
                         interlocutor.GetComponent<Ghost>().animator.SetBool("isInDialogue", false);
                         interlocutor.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                        player.GetComponent<PlayerInteraction>().musicSource.Play();
                     }
                 }
 

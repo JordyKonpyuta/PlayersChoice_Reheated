@@ -8,6 +8,10 @@ public class Ghost : MonoBehaviour
     public string[] dialogueLines = null;
     public string[] names = null;
 
+    public AudioSource audioSource;
+    public AudioClip appearSound;
+    public AudioClip disappearSound;
+
     void Start()
     {
         animator = gameObject.GetComponent<Animator>();
@@ -21,6 +25,9 @@ public class Ghost : MonoBehaviour
         {
             if (other.gameObject.GetComponent<PlayerInteraction>().hasGearBoyEquipped)
             {
+                other.gameObject.GetComponent<PlayerInteraction>().audioSource.clip = other.gameObject.GetComponent<PlayerInteraction>().lightGB;
+                other.gameObject.GetComponent<PlayerInteraction>().audioSource.loop = true;
+                other.gameObject.GetComponent<PlayerInteraction>().audioSource.Play();
                 other.gameObject.GetComponent<PlayerInteraction>().spriteGb.SetActive(true);
                 other.gameObject.GetComponent<PlayerInteraction>().interactionText.SetText("???");
                 other.gameObject.GetComponent<PlayerInteraction>().interactionCanvas.SetActive(true);
@@ -35,6 +42,7 @@ public class Ghost : MonoBehaviour
         {
             if (other.gameObject.GetComponent<PlayerInteraction>().hasGearBoyEquipped)
             {
+                other.gameObject.GetComponent<PlayerInteraction>().audioSource.Stop();
                 other.gameObject.GetComponent<PlayerInteraction>().spriteGb.SetActive(false);
                 other.gameObject.GetComponent<PlayerInteraction>().interactionCanvas.SetActive(false);
                 other.gameObject.GetComponent<PlayerInteraction>().interactive = null;

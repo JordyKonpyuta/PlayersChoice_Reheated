@@ -16,6 +16,15 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject interactionCanvas;
     public TextMeshProUGUI interactionText;
 
+    public GameObject gbCanvas;
+    public AudioSource audioSource;
+
+    public AudioSource musicSource;
+
+    public AudioClip equipGB;
+    public AudioClip useGB;
+    public AudioClip lightGB;
+
     public GameObject dialogueCanvas;
 
     public Animator animator;
@@ -30,6 +39,7 @@ public class PlayerInteraction : MonoBehaviour
         interactionCanvas.SetActive(false);
         animator.runtimeAnimatorController = normal;
         spriteGb.SetActive(false);
+        gbCanvas.SetActive(false);
     }
 
     // Update is called once per frame
@@ -42,6 +52,9 @@ public class PlayerInteraction : MonoBehaviour
                 hasGearBoyEquipped = !hasGearBoyEquipped;
                 ChangeControllerAnimator();
                 _canClick = false;
+                audioSource.clip = equipGB;
+                audioSource.loop = false;
+                audioSource.Play();
                 StartCoroutine(CanClickDelay());
             }
             
@@ -58,6 +71,8 @@ public class PlayerInteraction : MonoBehaviour
                         dialogueCanvas.GetComponent<DialogueSystem>().dialogueLines = interactive.GetComponent<Ghost>().dialogueLines;
                         dialogueCanvas.GetComponent<DialogueSystem>().names = interactive.GetComponent<Ghost>().names;
                         EnterInDialogue();
+                        musicSource.Stop();
+                        StartCoroutine(HideGBCanvas());
                         interactive.GetComponent<Ghost>().OnInteract();
                     }
 
@@ -106,5 +121,11 @@ public class PlayerInteraction : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         _canClick = true;
+    }
+
+    IEnumerator HideGBCanvas()
+    {
+        yield return new WaitForSeconds(1f);
+        gbCanvas.SetActive(false);
     }
 }
