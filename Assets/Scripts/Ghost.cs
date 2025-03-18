@@ -1,9 +1,16 @@
 using System;
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class Ghost : MonoBehaviour
 {
     public Animator animator;
+    private static readonly int IsTalking = Animator.StringToHash("IsTalking");
+    private static readonly int IsInDialogue = Animator.StringToHash("IsInDialogue");
+
+    public bool isTalking = false;
+    public bool isInDialogue = false;
 
     public string[] dialogueLines = null;
     public string[] names = null;
@@ -16,7 +23,13 @@ public class Ghost : MonoBehaviour
     {
         animator = gameObject.GetComponent<Animator>();
         animator.enabled = false;
-        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        Disappear();
+    }
+
+    void FixedUpdate()
+    {
+        animator.SetBool(IsTalking, isTalking);
+        animator.SetBool(IsInDialogue, isInDialogue);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -54,5 +67,10 @@ public class Ghost : MonoBehaviour
     {
         animator.enabled = true;
         gameObject.GetComponent<SpriteRenderer>().enabled = true;
+    }
+
+    void Disappear()
+    {
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
     }
 }

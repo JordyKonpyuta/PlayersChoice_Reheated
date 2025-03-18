@@ -4,6 +4,9 @@ public class NPC : MonoBehaviour
 {
 
     public Animator animator;
+    private static readonly int IsTalking = Animator.StringToHash("IsTalking");
+
+    public bool isTalking;
 
     public string[] dialogueLines;
     public string[] names;
@@ -14,6 +17,11 @@ public class NPC : MonoBehaviour
     void Start()
     {
         animator = gameObject.GetComponent<Animator>();
+    }
+
+    void FixedUpdate()
+    {
+        animator.SetBool(IsTalking, isTalking);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

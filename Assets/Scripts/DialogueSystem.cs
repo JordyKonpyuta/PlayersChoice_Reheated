@@ -42,14 +42,15 @@ public class DialogueSystem : MonoBehaviour
         dialogueText.text = displayText;
         VerifyWhoIsTalking();
         StartCoroutine(CanClickDelay());
-        player.GetComponent<PlayerInteraction>().gbCanvas.SetActive(true);
-        player.GetComponent<PlayerInteraction>().audioSource.clip = player.GetComponent<PlayerInteraction>().useGB;
-        player.GetComponent<PlayerInteraction>().audioSource.loop = false;
-        player.GetComponent<PlayerInteraction>().audioSource.Play();
         if (interlocutor.CompareTag("Ghost"))
         {
+            player.GetComponent<PlayerInteraction>().gbCanvas.SetActive(true);
+            player.GetComponent<PlayerInteraction>().audioSource.clip = player.GetComponent<PlayerInteraction>().useGB;
+            player.GetComponent<PlayerInteraction>().audioSource.loop = false;
+            player.GetComponent<PlayerInteraction>().audioSource.Play();
             interlocutor.GetComponent<Ghost>().audioSource.clip = interlocutor.GetComponent<Ghost>().appearSound;
             interlocutor.GetComponent<Ghost>().audioSource.Play();
+            interlocutor.gameObject.GetComponent<Ghost>().isInDialogue = true;
         }
     }
 
@@ -81,7 +82,7 @@ public class DialogueSystem : MonoBehaviour
                     {
                         interlocutor.GetComponent<Ghost>().audioSource.clip = interlocutor.GetComponent<Ghost>().disappearSound;
                         interlocutor.GetComponent<Ghost>().audioSource.Play();
-                        interlocutor.GetComponent<Ghost>().animator.SetBool("isInDialogue", false);
+                        interlocutor.GetComponent<Ghost>().isInDialogue = false;
                         interlocutor.gameObject.GetComponent<BoxCollider2D>().enabled = false;
                         player.GetComponent<PlayerInteraction>().musicSource.Play();
                     }
@@ -112,9 +113,15 @@ public class DialogueSystem : MonoBehaviour
         if (names[nameIndex] == "Sally Face")
         {
             player.GetComponent<PlayerInteraction>().isTalking = true;
+            dialogueText.color = new Color32(102, 169, 232, 255);
+
             if (interlocutor.CompareTag("Ghost"))
             {
-                interlocutor.gameObject.GetComponent<Ghost>().animator.SetBool("isTalking", false);
+                interlocutor.gameObject.GetComponent<Ghost>().isTalking = false;
+            }
+            else if (interlocutor.CompareTag("NPC"))
+            {
+                interlocutor.gameObject.GetComponent<NPC>().isTalking = false;
             }
         }
         else
@@ -122,7 +129,13 @@ public class DialogueSystem : MonoBehaviour
             player.GetComponent<PlayerInteraction>().isTalking = false;
             if (interlocutor.CompareTag("Ghost"))
             {
-                interlocutor.gameObject.GetComponent<Ghost>().animator.SetBool("isTalking", true);
+                interlocutor.gameObject.GetComponent<Ghost>().isTalking = true;
+                dialogueText.color = new Color32(234, 20, 62, 255);
+            }
+            else if (interlocutor.CompareTag("NPC"))
+            {
+                interlocutor.gameObject.GetComponent<NPC>().isTalking = true;
+                dialogueText.color = new Color32(255, 255, 255, 255);
             }
         }
     }

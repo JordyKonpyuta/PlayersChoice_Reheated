@@ -27,6 +27,7 @@ public class PlayerInteraction : MonoBehaviour
 
     public GameObject dialogueCanvas;
 
+    private static readonly int IsTalking = Animator.StringToHash("IsTalking");
     public Animator animator;
     public RuntimeAnimatorController normal;
     public RuntimeAnimatorController gbEquipped;
@@ -93,8 +94,11 @@ public class PlayerInteraction : MonoBehaviour
             }
             
         }
+    }
 
-        animator.SetBool("isTalking", this.isTalking);
+    void FixedUpdate()
+    {
+       animator.SetBool(IsTalking, isTalking);
     }
 
     void ChangeControllerAnimator()
