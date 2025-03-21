@@ -15,6 +15,7 @@ public class PlayerInteraction : MonoBehaviour
 
     public GameObject interactionCanvas;
     public TextMeshProUGUI interactionText;
+    public GameObject nextImage;
 
     public GameObject gbCanvas;
     public AudioSource audioSource;
@@ -24,7 +25,6 @@ public class PlayerInteraction : MonoBehaviour
     public AudioClip equipGB;
     public AudioClip useGB;
     public AudioClip lightGB;
-    public AudioClip openDoor;
 
     public GameObject dialogueCanvas;
 
