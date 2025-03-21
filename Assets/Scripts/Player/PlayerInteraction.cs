@@ -32,6 +32,10 @@ public class PlayerInteraction : MonoBehaviour
     public RuntimeAnimatorController normal;
     public RuntimeAnimatorController gbEquipped;
 
+    public Animator cameraAnimator;
+    private static readonly int Interact_Right = Animator.StringToHash("Interact_Right");
+    private static readonly int Interact_Left = Animator.StringToHash("Interact_Left");
+
     private bool _canClick = true;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -67,14 +71,31 @@ public class PlayerInteraction : MonoBehaviour
             {
                 if (interactive != null)
                 {
+                    dialogueCanvas.GetComponent<DialogueSystem>().interlocutor = interactive;
+
                     if (interactive.CompareTag("Ghost"))
                     {
                         dialogueCanvas.GetComponent<DialogueSystem>().dialogueLines = interactive.GetComponent<Ghost>().dialogueLines;
                         dialogueCanvas.GetComponent<DialogueSystem>().names = interactive.GetComponent<Ghost>().names;
-                        EnterInDialogue();
-                        musicSource.Stop();
-                        StartCoroutine(HideGBCanvas());
-                        interactive.GetComponent<Ghost>().OnInteract();
+                        if (hasGearBoyEquipped)
+                        {
+                            musicSource.Stop();
+                            gbCanvas.SetActive(true);
+                            audioSource.clip = useGB;
+                            audioSource.loop = false;
+                            audioSource.Play();
+                            StartCoroutine(HideGBCanvas());
+                            if (gameObject.GetComponent<SpriteRenderer>().flipX)
+                            {
+                                cameraAnimator.SetBool(Interact_Right, true);
+                            }
+                            else
+                            {
+                                cameraAnimator.SetBool(Interact_Right, false);
+                            }
+                            EnterInDialogue();
+                            StartCoroutine(DisplayDialogueCanvas());
+                        }
                     }
 
                     else if (interactive.CompareTag("NPC"))
@@ -82,6 +103,8 @@ public class PlayerInteraction : MonoBehaviour
                         dialogueCanvas.GetComponent<DialogueSystem>().dialogueLines = interactive.GetComponent<NPC>().dialogueLines;
                         dialogueCanvas.GetComponent<DialogueSystem>().names = interactive.GetComponent<NPC>().names;
                         EnterInDialogue();
+                        dialogueCanvas.GetComponent<DialogueSystem>().interlocutor = interactive;
+                        dialogueCanvas.SetActive(true);
                     }
 
                     else if (interactive.CompareTag("Door"))
@@ -117,8 +140,6 @@ public class PlayerInteraction : MonoBehaviour
         spriteGb.SetActive(false);
         isInteracting = true;
         interactionCanvas.SetActive(false);
-        dialogueCanvas.GetComponent<DialogueSystem>().interlocutor = interactive;
-        dialogueCanvas.SetActive(true);
     }
 
     IEnumerator CanClickDelay()
@@ -129,7 +150,24 @@ public class PlayerInteraction : MonoBehaviour
 
     IEnumerator HideGBCanvas()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.2f);
         gbCanvas.SetActive(false);
+    }
+
+    IEnumerator DisplayDialogueCanvas()
+    {
+        yield return new WaitForSeconds(2f);
+        dialogueCanvas.SetActive(true);
+    }
+
+    public void InteractGhost()
+    {
+        interactive.GetComponent<Ghost>().OnInteract();
+    }
+
+    public void StopCameraAnimation()
+    {
+        cameraAnimator.SetBool(Interact_Right, false);
+        cameraAnimator.SetBool(Interact_Left, false);
     }
 }

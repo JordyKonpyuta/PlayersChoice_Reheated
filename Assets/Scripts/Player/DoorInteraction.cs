@@ -25,7 +25,6 @@ public class DoorInteraction : MonoBehaviour
 
     public void ShowCanvas()
     {
-        Debug.Log("showing canvas");
         transform.parent.gameObject.GetComponent<PlayerInteraction>().isInteracting = true;
         canvas.SetActive(true);
         animator.enabled = true;

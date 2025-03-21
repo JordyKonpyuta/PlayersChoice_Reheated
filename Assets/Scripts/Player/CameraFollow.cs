@@ -13,4 +13,9 @@ public class CameraFollow : MonoBehaviour
     {
         transform.position = Vector3.SmoothDamp(transform.position, player.transform.position + posOffset, ref _velocity, timeOffset);
     }
+
+    public void GhostInteraction()
+    {
+        transform.parent.gameObject.GetComponent<PlayerInteraction>().InteractGhost();
+    }
 }

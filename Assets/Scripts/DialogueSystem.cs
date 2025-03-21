@@ -44,13 +44,10 @@ public class DialogueSystem : MonoBehaviour
         StartCoroutine(CanClickDelay());
         if (interlocutor.CompareTag("Ghost"))
         {
-            player.GetComponent<PlayerInteraction>().gbCanvas.SetActive(true);
-            player.GetComponent<PlayerInteraction>().audioSource.clip = player.GetComponent<PlayerInteraction>().useGB;
-            player.GetComponent<PlayerInteraction>().audioSource.loop = false;
-            player.GetComponent<PlayerInteraction>().audioSource.Play();
             interlocutor.GetComponent<Ghost>().audioSource.clip = interlocutor.GetComponent<Ghost>().appearSound;
             interlocutor.GetComponent<Ghost>().audioSource.Play();
             interlocutor.gameObject.GetComponent<Ghost>().isInDialogue = true;
+            player.GetComponent<PlayerInteraction>().StopCameraAnimation();
         }
     }
 
@@ -73,7 +70,6 @@ public class DialogueSystem : MonoBehaviour
                 }
                 else
                 {
-                    VerifyWhoIsTalking();
                     gameObject.SetActive(false);
                     player.gameObject.GetComponent<PlayerInteraction>().isInteracting = false;
                     //letterIndex = 0;
@@ -85,6 +81,10 @@ public class DialogueSystem : MonoBehaviour
                         interlocutor.GetComponent<Ghost>().isInDialogue = false;
                         interlocutor.gameObject.GetComponent<BoxCollider2D>().enabled = false;
                         player.GetComponent<PlayerInteraction>().musicSource.Play();
+                    }
+                    else
+                    {
+                        interlocutor.GetComponent<NPC>().isTalking = false;
                     }
                 }
 
