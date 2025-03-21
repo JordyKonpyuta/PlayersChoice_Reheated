@@ -32,8 +32,6 @@ public class DoorInteraction : MonoBehaviour
 
     void TeleportPlayer()
     {
-        audioSource.clip = openDoor;
-        audioSource.Play();
         transform.parent.gameObject.transform.position = playerDestination.transform.position;
     }
 }

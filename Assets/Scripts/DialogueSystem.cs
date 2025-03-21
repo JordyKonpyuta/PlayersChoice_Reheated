@@ -14,8 +14,8 @@ public class DialogueSystem : MonoBehaviour
     public string[] dialogueLines;
     public string[] names;
 
-    private int lineIndex = 0;
-    private int nameIndex = 0;
+    public int lineIndex = 0;
+    public int nameIndex = 0;
 
     private WaitForSeconds _skipDelay = new WaitForSeconds(0.02f);
 
@@ -68,6 +68,7 @@ public class DialogueSystem : MonoBehaviour
                 {
                     gameObject.SetActive(false);
                     player.gameObject.GetComponent<PlayerInteraction>().isInteracting = false;
+                    player.gameObject.GetComponent<PlayerInteraction>().isTalking = false;
                     if (interlocutor.CompareTag("Ghost"))
                     {
                         interlocutor.GetComponent<Ghost>().audioSource.clip = interlocutor.GetComponent<Ghost>().disappearSound;
@@ -76,7 +77,7 @@ public class DialogueSystem : MonoBehaviour
                         interlocutor.gameObject.GetComponent<BoxCollider2D>().enabled = false;
                         player.GetComponent<PlayerInteraction>().musicSource.Play();
                     }
-                    else
+                    else if (interlocutor.CompareTag("NPC"))
                     {
                         interlocutor.GetComponent<NPC>().isTalking = false;
                     }

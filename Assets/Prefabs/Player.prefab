@@ -566,10 +566,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 6112526675796964261}
   dialogueText: {fileID: 6146841141092270883}
-  dialogueLines:
-  - Je suis une joyeuse saucisse dans un petit pain !
-  names:
-  - Sally Face
+  dialogueLines: []
+  names: []
+  lineIndex: 0
+  nameIndex: 0
   player: {fileID: 4421288595205291263}
   interlocutor: {fileID: 0}
 --- !u!1 &3192170645626160822
@@ -1063,6 +1063,7 @@ MonoBehaviour:
   equipGB: {fileID: 8300000, guid: 2fc401baa0d306640801dfe8a2ff84a2, type: 3}
   useGB: {fileID: 8300000, guid: 9ecf186184c2ba4419fcc65a1526b288, type: 3}
   lightGB: {fileID: 8300000, guid: f239b9f9a426a7f409f363fcfb7e889e, type: 3}
+  openDoor: {fileID: 8300000, guid: 38128046976fe1849b9509d110ee5e62, type: 3}
   dialogueCanvas: {fileID: 2433816091742016210}
   animator: {fileID: 135519614365361818}
   normal: {fileID: 9100000, guid: f34eaa03bc562874fbe2c31243eea4c8, type: 2}

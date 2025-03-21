@@ -24,6 +24,7 @@ public class PlayerInteraction : MonoBehaviour
     public AudioClip equipGB;
     public AudioClip useGB;
     public AudioClip lightGB;
+    public AudioClip openDoor;
 
     public GameObject dialogueCanvas;
 

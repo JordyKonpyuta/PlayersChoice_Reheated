@@ -10,9 +10,10 @@ public class Door : MonoBehaviour
     public AudioSource audioSource;
 
     public AudioClip[] noDestinationSound;
+    public AudioClip openDoor;
 
-    private string[] defaultDialogue = {"Y a personne."};
-    private string[] defaultName = {"Sally Face"};
+    public string[] defaultDialogue;
+    public string[] defaultName;
 
     void Start()
     {
@@ -46,8 +47,8 @@ public class Door : MonoBehaviour
 
     public void OnInteract()
     {
-        if (destination != null) 
-        { 
+        if (destination != null)
+        {
             if (destination.CompareTag("Door"))
             {
                 foreach (Transform child in player.transform)
@@ -56,27 +57,36 @@ public class Door : MonoBehaviour
                     {
                         child.GetComponent<DoorInteraction>().ShowCanvas();
                         child.GetComponent<DoorInteraction>().playerDestination = destination;
+                        player.GetComponent<PlayerInteraction>().audioSource.clip = openDoor;
+                        player.GetComponent<PlayerInteraction>().audioSource.Play();
                     }
                 }
             }
-
             else
             {
-                audioSource.clip = noDestinationSound[Random.Range(0, noDestinationSound.Length)];
-                audioSource.Play();
+                if (!player.GetComponent<PlayerInteraction>().isTalking)
+                {
+                    audioSource.clip = noDestinationSound[Random.Range(0, noDestinationSound.Length)];
+                    audioSource.Play();
+                }
                 player.GetComponent<PlayerInteraction>().EnterInDialogue();
+                player.GetComponent<PlayerInteraction>().dialogueCanvas.GetComponent<DialogueSystem>().interlocutor = gameObject;
                 player.GetComponent<PlayerInteraction>().dialogueCanvas.GetComponent<DialogueSystem>().dialogueLines = defaultDialogue;
                 player.GetComponent<PlayerInteraction>().dialogueCanvas.GetComponent<DialogueSystem>().names = defaultName;
+                player.GetComponent<PlayerInteraction>().dialogueCanvas.SetActive(true);
             }
         }
+
 
         else
         {
             audioSource.clip = noDestinationSound[Random.Range(0, noDestinationSound.Length)];
             audioSource.Play();
             player.GetComponent<PlayerInteraction>().EnterInDialogue();
+            player.GetComponent<PlayerInteraction>().dialogueCanvas.GetComponent<DialogueSystem>().interlocutor = gameObject;
             player.GetComponent<PlayerInteraction>().dialogueCanvas.GetComponent<DialogueSystem>().dialogueLines = defaultDialogue;
             player.GetComponent<PlayerInteraction>().dialogueCanvas.GetComponent<DialogueSystem>().names = defaultName;
+            player.GetComponent<PlayerInteraction>().dialogueCanvas.SetActive(true);
         }
     }
 }

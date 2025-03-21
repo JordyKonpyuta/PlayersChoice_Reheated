@@ -103,6 +103,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3de2106df60d4594db9f9f0181f73c71, type: 3}
   - {fileID: 8300000, guid: cb20527d2db9d26418b8190711490605, type: 3}
   - {fileID: 8300000, guid: 56f2aa4d16d2a8e4a952161a70308367, type: 3}
+  openDoor: {fileID: 8300000, guid: 38128046976fe1849b9509d110ee5e62, type: 3}
+  defaultDialogue: []
+  defaultName: []
 --- !u!82 &1283090514527551034
 AudioSource:
   m_ObjectHideFlags: 0
