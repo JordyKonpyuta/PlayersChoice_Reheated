@@ -163,6 +163,9 @@ public class PlayerInteraction : MonoBehaviour
     public void InteractGhost()
     {
         interactive.GetComponent<Ghost>().OnInteract();
+        interactive.GetComponent<Ghost>().audioSource.clip = interactive.GetComponent<Ghost>().appearSound;
+        interactive.GetComponent<Ghost>().audioSource.Play();
+        interactive.gameObject.GetComponent<Ghost>().isInDialogue = true;
     }
 
     public void StopCameraAnimation()

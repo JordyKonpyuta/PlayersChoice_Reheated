@@ -16,21 +16,13 @@ public class DialogueSystem : MonoBehaviour
 
     private int lineIndex = 0;
     private int nameIndex = 0;
-    private int letterIndex = 0;
 
-    private string displayText = null;
-
-    //private float timePerChar = 0.02f;
-    //private float timer = 0;
+    private WaitForSeconds _skipDelay = new WaitForSeconds(0.02f);
 
     public GameObject player;
     public GameObject interlocutor;
 
     private bool _canClick = true;
-
-   public void Start()
-    {
-    }
 
    void OnEnable()
     {
@@ -38,8 +30,8 @@ public class DialogueSystem : MonoBehaviour
         nameIndex = 0;
         nameText.text = names[nameIndex];
         lineIndex = 0;
-        displayText = dialogueLines[lineIndex];
-        dialogueText.text = displayText;
+        dialogueText.text = null;
+        StartCoroutine(TypewrittingEffect());
         VerifyWhoIsTalking();
         StartCoroutine(CanClickDelay());
         if (interlocutor.CompareTag("Ghost"))
@@ -58,22 +50,24 @@ public class DialogueSystem : MonoBehaviour
         {
             if (_canClick)
             {
-                if (lineIndex < dialogueLines.Length - 1)
+                if (dialogueText.text != dialogueLines[lineIndex])
                 {
+                    SkipDialogue();
+                }
+
+                else if (lineIndex < dialogueLines.Length - 1)
+                {
+                    dialogueText.text = null;
                     lineIndex++;
                     nameIndex++;
-                    displayText = dialogueLines[lineIndex];
                     nameText.text = names[nameIndex];
-                    dialogueText.text = displayText;
-                    //letterIndex = 0;
+                    StartCoroutine(TypewrittingEffect());
                     VerifyWhoIsTalking();
                 }
                 else
                 {
                     gameObject.SetActive(false);
                     player.gameObject.GetComponent<PlayerInteraction>().isInteracting = false;
-                    //letterIndex = 0;
-                    displayText = null;
                     if (interlocutor.CompareTag("Ghost"))
                     {
                         interlocutor.GetComponent<Ghost>().audioSource.clip = interlocutor.GetComponent<Ghost>().disappearSound;
@@ -98,14 +92,22 @@ public class DialogueSystem : MonoBehaviour
         }
     }
 
-    private void TypewrittingEffect()
+    IEnumerator TypewrittingEffect()
     {
-        if (letterIndex < dialogueLines[lineIndex].Length)
+        foreach (char c in dialogueLines[lineIndex])
         {
-            displayText += dialogueLines[lineIndex][letterIndex];
-            dialogueText.text = displayText;
-            letterIndex++;
+            if (dialogueText.text != dialogueLines[lineIndex])
+            {
+                dialogueText.text = dialogueText.text + c;
+                yield return _skipDelay;
+            }
         }
+    }
+
+    private void SkipDialogue()
+    {
+        dialogueText.text = dialogueLines[lineIndex];
+        StopCoroutine(TypewrittingEffect());
     }
 
     private void VerifyWhoIsTalking()
