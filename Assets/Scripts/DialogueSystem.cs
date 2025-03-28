@@ -22,6 +22,8 @@ public class DialogueSystem : MonoBehaviour
     public GameObject player;
     public GameObject interlocutor;
 
+    public GameObject nextImage;
+
     private bool _canClick = true;
 
    void OnEnable()
@@ -31,6 +33,7 @@ public class DialogueSystem : MonoBehaviour
         nameText.text = names[nameIndex];
         lineIndex = 0;
         dialogueText.text = null;
+        nextImage.SetActive(false);
         StartCoroutine(TypewrittingEffect());
         VerifyWhoIsTalking();
         StartCoroutine(CanClickDelay());
@@ -45,6 +48,11 @@ public class DialogueSystem : MonoBehaviour
 
    public void Update()
     {
+        if (dialogueText.text != dialogueLines[lineIndex])
+        {
+            nextImage.SetActive(false);
+        }
+        else nextImage.SetActive(true);
 
         if (Input.GetButton($"Interact"))
         {
@@ -57,6 +65,7 @@ public class DialogueSystem : MonoBehaviour
 
                 else if (lineIndex < dialogueLines.Length - 1)
                 {
+                    nextImage.SetActive(false);
                     dialogueText.text = null;
                     lineIndex++;
                     nameIndex++;
@@ -110,6 +119,7 @@ public class DialogueSystem : MonoBehaviour
     {
         dialogueText.text = dialogueLines[lineIndex];
         StopCoroutine(TypewrittingEffect());
+        nextImage.SetActive(true);
     }
 
     private void VerifyWhoIsTalking()
