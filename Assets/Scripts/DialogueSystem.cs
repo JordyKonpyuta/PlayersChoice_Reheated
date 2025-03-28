@@ -78,7 +78,6 @@ public class DialogueSystem : MonoBehaviour
                     gameObject.SetActive(false);
                     player.gameObject.GetComponent<PlayerInteraction>().isInteracting = false;
                     player.gameObject.GetComponent<PlayerInteraction>().isTalking = false;
-                    player.gameObject.GetComponent<PlayerInteraction>().interactionCanvas.SetActive(true);
                     if (interlocutor.CompareTag("Ghost"))
                     {
                         interlocutor.GetComponent<Ghost>().audioSource.clip = interlocutor.GetComponent<Ghost>().disappearSound;
@@ -90,6 +89,7 @@ public class DialogueSystem : MonoBehaviour
                     else if (interlocutor.CompareTag("NPC"))
                     {
                         interlocutor.GetComponent<NPC>().isTalking = false;
+                        player.gameObject.GetComponent<PlayerInteraction>().interactionCanvas.SetActive(true);
                     }
                 }
 
